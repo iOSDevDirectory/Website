@@ -1,0 +1,44 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: iOS Dev Directory
+email: dave.verwer@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  The iOS Dev Directory is a comprehensive list of blogs and sites covering iOS
+  development. Whether it's about coding, design, marketing or anything in between,
+  if a blog or site is related to iOS development it should be listed here.
+url: "http://iosdevdirectory.com"
+baseurl: ""
+
+twitter_username: daveverwer
+github_username: daveverwer
+
+# Build settings
+markdown: kramdown
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea

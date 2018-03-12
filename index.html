@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="introduction">
+  <h1>The iOS Dev Directory is a comprehensive list of blogs &amp; sites covering iOS development.</h1>
+  <h2>Whether it's about coding, design, marketing or anything in between, if a blog or site is related to iOS development it should be listed here.</h2>
+</div>
+
+<p>This site was built and is maintained by <a href="https://twitter.com/daveverwer">Dave Verwer</a>, author of <a href="https://iosdevweekly.com">iOS Dev Weekly</a>.</p>
+<p>The directory is categorised, jump to any of the categories below:</p>
+
+<ul>
+{% for category in site.data.categories %}
+  <li><a href="#{{ category.slug }}">{{ category.title }}</a></li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<div class="sponsored">
+  <h3><a href="http://cur.at/8HNnimr">Tired of manually publishing updates to your iOS apps?</a></h3>
+  <p>App Center helps you distribute, validate, and publish releases without any manual work. You'll automatically redistribute your iOS apps to beta testers, based on crash and analytics data - with nothing more than an automation script, and simple App Center set-up. <a href="http://cur.at/8HNnimr">Learn how</a>.</p>
+  <small>Sponsored link</small>
+</div>
+
+<div class="sites">
+  {% for category in site.data.categories %}
+  <div class="category-header">
+    <h3 id="{{ category.slug }}">{{ category.title }}</h3>
+    <a href="/opml/{{ category.slug }}.opml"><img src="/assets/images/opml@2x.png"></a>
+  </div>
+  <p>{{ category.description }}</p>
+  <ul>
+    {% for site in category.sites %}
+    <li>
+      <a href="{{- site.site_url -}}" target="_blank">{{- site.title -}}</a>
+      <a href="{{- site.twitter_url -}}" target="_blank"><span class="fab fa-twitter fa-xs"></span></a>
+      <a href="{{- site.feed_url -}}" target="_blank"><span class="fas fa-rss fa-xs"></span></a>
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- endfor -%}
+</div>

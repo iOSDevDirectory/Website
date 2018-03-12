@@ -1,0 +1,8 @@
+<meta charset="utf-8">
+<title>{{ .Title }}</title>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+{% if jekyll.environment == "production" %}
+{%- include analytics-head.html -%}
+{%- endif -%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+<link rel="stylesheet" href="/assets/css/default.css">
