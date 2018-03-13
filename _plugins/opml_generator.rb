@@ -15,7 +15,11 @@ module Jekyll
             end
             xml.body do
               category["sites"].each do |site|
-                xml.outline(type: "rss", text: site["title"], xmlUrl: site["feed_url"], htmlUrl: site["site_url"], description: "By #{site["author"]}")
+                if site["author"].nil? || site["author"].length < 1 then
+                  xml.outline(type: "rss", text: site["title"], xmlUrl: site["feed_url"], htmlUrl: site["site_url"])
+                else
+                  xml.outline(type: "rss", text: site["title"], xmlUrl: site["feed_url"], htmlUrl: site["site_url"], description: "By #{site["author"]}")
+                end
               end
             end
           end
