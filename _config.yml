@@ -33,10 +33,6 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# Plugins
-plugins:
-  - jekyll-feed
-
 # Exclude from processing.
 exclude:
   - Gemfile
