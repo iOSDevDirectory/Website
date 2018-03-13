@@ -29,7 +29,17 @@ If you think there's a category missing or want to suggest a bigger change to th
 These simple instructions should be everything you need to get a new site included in the directory:
 
 1. Fork [this repository](https://github.com/daveverwer/iOSDevDirectory) on GitHub.
-2. Edit [sites.json](https://github.com/daveverwer/iOSDevDirectory/blob/master/sites.json) and add your site.
+2. Edit [sites.json](https://github.com/daveverwer/iOSDevDirectory/blob/master/sites.json) and add your site. See below for the details of the JSON format.
 3. Submit a pull request back to the original repository.
 
 Once the pull request is accepted and merged, this site will be re-generated and your link will magically appear! Thank you for wanting to contribute.
+
+## Adding your site
+
+Your site should be added as a JSON hash in the correct category. The following keys are valid:
+
+* `title` (Required) : The title of the blog/site. If it is just a personal blog, use the format "John Appleseed's Blog".
+* `author` (Optional) : A free text string containing the author(s) names. Try to keep this less than 30 characters.
+* `site_url` (Required) : A valid URL to the web version of the blog/site.
+* `feed_url` (Required) : A valid URL to the RSS/ATOM feed for the blog/site.
+* `twitter_url` (Optional) : A valid URL to the Twitter account for the blog/site.
