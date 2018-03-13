@@ -10,7 +10,7 @@ module Jekyll
         builder = Nokogiri::XML::Builder.new(:encoding => "UTF-8") do |xml|
           xml.opml(version: "2.0") do
             xml.head do
-              xml.title "#{category["title"]} sites from the iOS Dev Directory (http://iosdevdirectory.com)"
+              xml.title "#{category["title"]} from the iOS Dev Directory (http://iosdevdirectory.com)"
               xml.dateCreated Time.now.strftime("%a, %d %b %Y %H:%M:%S %z")
             end
             xml.body do
