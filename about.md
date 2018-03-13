@@ -1,7 +1,7 @@
 ---
 layout: default
-title: About
 permalink: /about/
+title: iOS Dev Directory - About
 ---
 
 # What is the iOS Dev Directory?

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Contributing
 permalink: /contributing/
+title: iOS Dev Directory - Contributing
 ---
 
 # Adding a site to the iOS Dev Directory
