@@ -34,9 +34,9 @@ layout: default
   <ul>
     {% for site in category.sites %}
     <li>
-      <a href="{{- site.site_url -}}" target="_blank">{{- site.title -}}</a>
-      <a href="{{- site.twitter_url -}}" target="_blank"><span class="fab fa-twitter fa-xs"></span></a>
-      <a href="{{- site.feed_url -}}" target="_blank"><span class="fas fa-rss fa-xs"></span></a>
+      <a href="{{- site.site_url -}}" target="_blank">{{ site.title }}</a>
+      {% if site.twitter_url %}<a href="{{- site.twitter_url -}}" target="_blank"><span class="fab fa-twitter fa-xs"></span></a>{% endif %}
+      {% if site.feed_url %}<a href="{{- site.feed_url -}}" target="_blank"><span class="fas fa-rss fa-xs"></span></a>{% endif %}
     </li>
     {% endfor %}
   </ul>
