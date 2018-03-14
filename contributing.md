@@ -14,9 +14,9 @@ Only sites relevant to iOS development or design will be added to this directory
 
 For example if you post mainly about Swift development, occasionally about iOS design and sometimes about other topics, you should do something like this:
 
-* Add an iOS development category link and feed to the development category.
-* Add an iOS design category link and feed to the design category.
-* Leave out the other categories!
+* Add a link to your site's development related posts to the "iOS Development Blogs" category.
+* Add a link to your site's design related posts to the "iOS Design Blogs" category.
+* Leave out the other categories from your site!
 
 If in doubt, submit a pull request using the instructions below and we'll have a conversation about it.
 
@@ -30,7 +30,7 @@ These simple instructions should be everything you need to get a new site includ
 
 1. Fork [this repository](https://github.com/daveverwer/iOSDevDirectory) on GitHub.
 2. Edit [sites.json](https://github.com/daveverwer/iOSDevDirectory/blob/master/sites.json) and add your site. See below for the details of the JSON format.
-3. Submit a pull request back to the original repository.
+3. Submit a pull request.
 
 Once the pull request is accepted and merged, this site will be re-generated and your link will magically appear! Thank you for wanting to contribute.
 
