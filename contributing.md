@@ -39,7 +39,7 @@ Once the pull request is accepted and merged, this site will be re-generated and
 Your site should be added as a JSON hash in the correct category. The following keys are valid:
 
 * `title` (Required) : The title of the blog/site. If it is just a personal blog, use the format "John Appleseed's Blog".
-* `author` (Optional) : A free text string containing the author(s) names. Try to keep this less than 30 characters.
+* `author` (Required) : A free text string containing the author(s) names. Try to keep this less than 30 characters.
 * `site_url` (Required) : A valid URL to the web version of the blog/site.
 * `feed_url` (Required) : A valid URL to the RSS/ATOM feed for the blog/site.
 * `twitter_url` (Optional) : A valid URL to the Twitter account for the blog/site.
