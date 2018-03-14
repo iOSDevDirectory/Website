@@ -127,20 +127,25 @@ header {
 
 .sites {
   .category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 1em 0;
     padding: 0.25em;
     border-bottom: 2px $tertiary-color solid;
 
     h3 {
+      display: inline-block;
       font-size: 1.25rem;
       font-weight: 900;
     }
 
-    img {
-      width: 40px;
+    span {
+      border-radius: 50vh;
+      background-color: $tertiary-color;
+      font-size: 0.75rem;
+
+      a {
+        padding: 0.4rem;
+        color: $primary-background-color;
+      }
     }
   }
 
