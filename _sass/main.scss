@@ -138,12 +138,12 @@ header {
     }
 
     span {
+      padding: 0 0.4rem;
       border-radius: 50vh;
       background-color: $tertiary-color;
       font-size: 0.75rem;
 
       a {
-        padding: 0.4rem;
         color: $primary-background-color;
       }
     }
@@ -182,6 +182,26 @@ header {
 
   a:hover, svg:hover {
     color: $text-color;
+  }
+}
+
+.json-fields {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      margin: 1rem;
+
+      code {
+        padding: 0.1rem 0.25rem;
+        background-color: $secondary-background-color;
+        box-shadow: $standard-shadow;
+        border: $standard-border;
+        border-radius: 3px;
+      }
+    }
   }
 }
 

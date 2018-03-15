@@ -36,10 +36,15 @@ Once the pull request is accepted and merged, this site will be re-generated and
 
 ## Adding your site
 
+
 Your site should be added as a JSON hash in the correct category. The following keys are valid:
 
-* `title` (Required) : The title of the blog/site. If it is just a personal blog, use the format "John Appleseed's Blog".
-* `author` (Required) : A free text string containing the author(s) names. Try to keep this less than 30 characters.
-* `site_url` (Required) : A valid URL to the web version of the blog/site.
-* `feed_url` (Required) : A valid URL to the RSS/ATOM feed for the blog/site.
-* `twitter_url` (Optional) : A valid URL to the Twitter account for the blog/site.
+<div class="json-fields">
+  <ul>
+    <li><code>title</code> &ndash; The title of the blog/site. If it is just a personal blog, use the format "John Appleseed's Blog". This field is required.</li>
+    <li><code>author</code> &ndash; A free text string containing the author(s) names. Try to keep this less than 30 characters. This field is required.</li>
+    <li><code>site_url</code> &ndash; A valid URL to the web version of the blog/site. This field is required.</li>
+    <li><code>feed_url</code> &ndash; A valid URL to the RSS/ATOM feed for the blog/site. This field is required.</li>
+    <li><code>twitter_url</code> &ndash; A valid URL to the Twitter account for the blog/site. This field is required.</li>
+  </ul>
+</div>
