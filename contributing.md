@@ -10,7 +10,7 @@ Is there something missing from this directory? Here's everything you need to kn
 
 ## Guidelines for Inclusion
 
-Only sites relevant to iOS development or design will be added to this directory. However, if your site is not *purely* about iOS Development or design and includes other topics please try and use categories (if your blog software supports them) to filter it down before submission.
+Ideally, only sites relevant to iOS development or design will be added to this directory. However, if your site is not *purely* about iOS Development or design and includes other topics please try and use categories (if your blog software supports them) to filter it down before submission.
 
 For example if you post mainly about Swift development, occasionally about iOS design and sometimes about other topics, you should do something like this:
 
@@ -18,9 +18,9 @@ For example if you post mainly about Swift development, occasionally about iOS d
 * Add a link to your site's design related posts to the "iOS Design Blogs" category.
 * Leave out the other categories from your site!
 
-If in doubt, submit a pull request using the instructions below and we'll have a conversation about it.
+If that is also not possible, that's still OK! I'd like this list to err on the side of inclusion and so if your blog is partially about something related to iOS development and partially about something else, submit it anyway!
 
-This site currently only contains English language blogs and sites but if there is sufficient interest I'd welcome non English language blogs and would create categories for those.
+The directory currently only contains English language blogs and sites but if there is sufficient interest I'd welcome blogs in other languages and will create categories for those.
 
 If you think there's a category missing or want to suggest a bigger change to the site, [open an issue](https://github.com/daveverwer/iOSDevDirectory/issues/new).
 
