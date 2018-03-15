@@ -18,7 +18,7 @@ module Jekyll
           sponsored_link_title = sponsored_link["title"]
           sponsored_link_url = sponsored_link["url"]
           sponsored_link_body = sponsored_link["description"]
-          return "<h3><a href=\"#{sponsored_link_url}\">#{sponsored_link_title}</a></h3><p>#{sponsored_link_body}</p>"
+          return "<h3><a href=\"#{sponsored_link_url}\">#{sponsored_link_title}</a></h3>#{sponsored_link_body}"
         end
       end
     end
