@@ -45,6 +45,6 @@ Your site should be added as a JSON hash in the correct category. The following 
     <li><code>author</code> &ndash; A free text string containing the author(s) names. Try to keep this less than 30 characters. This field is required.</li>
     <li><code>site_url</code> &ndash; A valid URL to the web version of the blog/site. This field is required.</li>
     <li><code>feed_url</code> &ndash; A valid URL to the RSS/ATOM feed for the blog/site. This field is required.</li>
-    <li><code>twitter_url</code> &ndash; A valid URL to the Twitter account for the blog/site. This field is required.</li>
+    <li><code>twitter_url</code> &ndash; A valid URL to the Twitter account for the blog/site. This field is optional.</li>
   </ul>
 </div>
