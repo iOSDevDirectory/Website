@@ -9,15 +9,20 @@ title: iOS Dev Directory
 </div>
 
 <p>This site was built and is maintained by <a href="https://twitter.com/daveverwer">Dave Verwer</a>, author of <a href="https://iosdevweekly.com">iOS Dev Weekly</a>.</p>
-<p>The directory is categorised, jump to any of the categories below:</p>
+<p>The directory is organised by language, and categorised. Jump to any of the categories below:</p>
 
 <ul>
-{% for category in site.data.categories %}
-  <li><a href="#{{ category.slug }}">{{ category.title }}</a></li>
+{% for language in site.data.content %}
+  <li>
+    <a href="#{{ language.language }}">{{ language.title }}</a>
+    <ul>
+    {% for category in language.categories %}
+      <li><a href="#{{ category.slug }}-{{ language.language }}">{{ category.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </li>
 {% endfor %}
 </ul>
-
-<hr>
 
 <div class="sponsored">
   {% sponsored_link %}
@@ -25,21 +30,28 @@ title: iOS Dev Directory
 </div>
 
 <div class="sites">
-  {% for category in site.data.categories %}
-  <div class="category-header">
-    <h3 id="{{ category.slug }}">{{ category.title }}</h3>
-    <span><a href="/opml/{{ category.slug }}.opml">OPML</a></span>
+{% for language in site.data.content %}
+  <div class="language-header">
+    <h1 id="{{ language.language }}">{{ language.title }}</h1>
   </div>
-  <p>{{ category.description }}</p>
-  <ul>
+  <div class="language" lang="{{ language.language}}">
+    {% for category in language.categories %}
+    <div class="category-header">
+      <h2 id="{{ category.slug }}-{{ language.language }}">{{ category.title }}</h2>
+      <span class="opml"><a href="/opml/{{ category.slug }}.opml">OPML</a></span>
+    </div>
+    <p>{{ category.description }}</p>
+    <ul>
     {% for site in category.sites %}
-    <li>
-      <a href="{{ site.site_url }}">{{ site.title }}</a>
-      {% if site.twitter_url %}<a href="{{ site.twitter_url }}"><i class="fab fa-twitter fa-xs"></i></a>{% endif %}
-      <a href="{{ site.feed_url }}"><i class="fas fa-rss fa-xs"></i></a>
-      <div class="author">By {{ site.author }}</div>
-    </li>
+      <li>
+        <a href="{{ site.site_url }}">{{ site.title }}</a>
+        {% if site.twitter_url %}<a href="{{ site.twitter_url }}"><i class="fab fa-twitter fa-xs"></i></a>{% endif %}
+        <a href="{{ site.feed_url }}"><i class="fas fa-rss fa-xs"></i></a>
+        <div class="author">By {{ site.author }}</div>
+      </li>
     {% endfor %}
-  </ul>
+    </ul>
   {% endfor %}
+  </div>
+{% endfor %}
 </div>

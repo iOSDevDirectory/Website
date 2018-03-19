@@ -51,6 +51,7 @@ h3 {
 
 li {
   margin: 0.1rem 0;
+  list-style-type: disc;
 }
 
 .content {
@@ -100,10 +101,8 @@ header {
 }
 
 .sponsored {
-  width: 90%;
-  margin: 0 auto;
-  padding: 1rem;
-  padding-bottom: 0;
+  margin: 2rem 0;
+  padding: 1rem 1rem 0 1rem;
   background-color: $secondary-background-color;
   box-shadow: $standard-shadow;
   border: $standard-border;
@@ -126,18 +125,29 @@ header {
 }
 
 .sites {
+  h1 {
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 900;
+  }
+
+  .language-header {
+    margin: 2.5rem 0 0 0;
+    padding: 0.25rem;
+    border-bottom: 2px $secondary-color solid;
+  }
+
   .category-header {
-    margin: 1em 0;
-    padding: 0.25em;
+    margin: 1rem 0;
+    padding: 0.25rem;
     border-bottom: 2px $tertiary-color solid;
 
-    h3 {
-      display: inline-block;
-      font-size: 1.25rem;
-      font-weight: 900;
-    }
-
-    span {
+    .opml {
       padding: 0 0.4rem;
       border-radius: 50vh;
       background-color: $tertiary-color;
