@@ -38,7 +38,7 @@ title: iOS Dev Directory
     {% for category in language.categories %}
     <div class="category-header">
       <h2 id="{{ category.slug }}-{{ language.language }}">{{ category.title }}</h2>
-      <span class="opml"><a href="/opml/{{ category.slug }}.opml">OPML</a></span>
+      <span class="opml"><a href="/opml/{{ language.language }}/{{ category.slug }}.opml">OPML</a></span>
     </div>
     <p>{{ category.description }}</p>
     <ul>
