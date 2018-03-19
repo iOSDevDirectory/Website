@@ -12,17 +12,19 @@ Is there something missing from this directory? Here's everything you need to kn
 
 Ideally, only sites relevant to iOS development or design will be added to this directory. However, if your site is not *purely* about iOS Development or design and includes other topics please try and use categories (if your blog software supports them) to filter it down before submission.
 
-For example if you post mainly about Swift development, occasionally about iOS design and sometimes about other topics, you should do something like this:
+For example if you post mainly about Swift development, occasionally about iOS design and sometimes about other topics, the best solution would be to do this:
 
-* Add a link to your site's development related posts to the "iOS Development Blogs" category.
-* Add a link to your site's design related posts to the "iOS Design Blogs" category.
-* Leave out the other categories from your site!
+* Add a link to your site's development related posts to the development category.
+* Add a link to your site's design related posts to the design category.
+* Leave out the other categories from your site.
 
-If that is also not possible, that's still OK! I'd like this list to err on the side of inclusion and so if your blog is partially about something related to iOS development and partially about something else, submit it anyway!
-
-The directory currently only contains English language blogs and sites but if there is sufficient interest I'd welcome blogs in other languages and will create categories for those.
+If that is not possible because your blog software doesn't support categories, that's still OK! I'd like this site to err on the side of inclusion and so if your blog is partially about something related to iOS development and partially about something else, submit it anyway!
 
 If you think there's a category missing or want to suggest a bigger change to the site, [open an issue](https://github.com/daveverwer/iOSDevDirectory/issues/new).
+
+## Multiple Language Support
+
+This site now supports multiple languages, and categories within those languages. If your blog or site is written in a language that has not yet been added, please feel free to add that language in the JSON and the site will automatically be expanded to include it.
 
 ## How to Contribute
 
