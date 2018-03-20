@@ -65,12 +65,12 @@ header {
   margin-bottom: 1.5rem;
   align-items: center;
 
-  @media (min-width: $mobile-breakpoint + 1) {
-    justify-content: space-between;
-  }
-
   @media (max-width: $mobile-breakpoint) {
     flex-direction: column;
+  }
+
+  @media (min-width: $mobile-breakpoint + 1) {
+    justify-content: space-between;
   }
 
   img {
@@ -166,22 +166,32 @@ header {
 
   ul {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
   }
 
   li {
-    width: 30%;
-    min-width: 30%;
-    margin: 0.25em 0;
+    min-width: 200px;
+    margin: 0.25rem 0.2rem;
     padding: 0.25rem 0.5rem;
     background-color: $secondary-background-color;
     box-shadow: $standard-shadow;
     border: $standard-border;
     border-radius: 3px;
     list-style: none;
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100%;
+    }
+
+    @media (min-width: $mobile-breakpoint + 1) {
+      width: 30%;
+    }
+
+    .social {
+      text-align: right;
+    }
   }
 
   li:hover {
@@ -189,7 +199,6 @@ header {
   }
 
   li svg {
-    margin-left: 0.25rem;
     color: $secondary-color;
   }
 
