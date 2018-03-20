@@ -5,7 +5,7 @@ $tertiary-color: #fdab2e;
 $primary-background-color: #ffffff;
 $secondary-background-color: #f2f2f2;
 $hover-background-color: #eaeaea;
-$standard-shadow: 0 0 8px 0 rgba(200, 200, 200, 0.5);
+$standard-shadow: 0 0 3px 0 rgba(200, 200, 200, 0.5);
 $standard-border: 1px #dadada solid;
 $mobile-breakpoint: 500px;
 
@@ -81,7 +81,6 @@ header {
     margin: 0;
     padding: 0;
     text-align: center;
-    list-style: none;
   }
 
   li {
@@ -166,13 +165,17 @@ header {
   }
 
   ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
   }
 
   li {
-    display: inline-block;
-    margin: 0.2rem 0.1rem;
+    width: 30%;
+    min-width: 30%;
+    margin: 0.25em 0;
     padding: 0.25rem 0.5rem;
     background-color: $secondary-background-color;
     box-shadow: $standard-shadow;
