@@ -51,7 +51,7 @@ h3 {
 
 li {
   margin: 0.1rem 0;
-  list-style-type: disc;
+  list-style: disc;
 }
 
 .content {
@@ -81,7 +81,7 @@ header {
     margin: 0;
     padding: 0;
     text-align: center;
-    list-style-type: none;
+    list-style: none;
   }
 
   li {
@@ -168,7 +168,6 @@ header {
   ul {
     margin: 0;
     padding: 0;
-    list-style-type: none;
   }
 
   li {
@@ -179,6 +178,7 @@ header {
     box-shadow: $standard-shadow;
     border: $standard-border;
     border-radius: 3px;
+    list-style: none;
   }
 
   li:hover {
@@ -199,10 +199,10 @@ header {
   ul {
     margin: 0;
     padding: 0;
-    list-style-type: none;
 
     li {
       margin: 1rem;
+      list-style: none;
 
       code {
         padding: 0.1rem 0.25rem;
