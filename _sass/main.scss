@@ -172,7 +172,6 @@ header {
   }
 
   li {
-    min-width: 200px;
     margin: 0.25em 0.2em;
     padding: 0.25em 0.5em;
     background-color: $secondary-background-color;
@@ -180,12 +179,8 @@ header {
     border: $standard-border;
     border-radius: 3px;
     list-style: none;
-    flex: 1 0 100%;
+    flex: 1 1 100%;
     max-width: calc(1000% - 1.525em);
-
-    @media (max-width: $mobile-breakpoint) {
-      width: 100%;
-    }
 
     @media (min-width: $mobile-breakpoint + 1) {
       flex: 0 0 33.3333%;
