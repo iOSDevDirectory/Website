@@ -6,7 +6,7 @@ $primary-background-color: #ffffff;
 $secondary-background-color: #f2f2f2;
 $hover-background-color: #eaeaea;
 $standard-shadow: 0 0 3px 0 rgba(200, 200, 200, 0.5);
-$standard-border: 0.0625em #dadada solid;
+$standard-border: 1px #dadada solid;
 $mobile-breakpoint: 500px;
 
 body {
@@ -172,19 +172,19 @@ header {
   }
 
   li {
-    margin: 0.25em 0.2em;
-    padding: 0.25em 0.5em;
+    flex: 1 1 100%;
+    margin: 0.25rem 0.2rem;
+    padding: 0.25rem 0.5rem;
+    max-width: calc(1000% - 1.525rem);
     background-color: $secondary-background-color;
     box-shadow: $standard-shadow;
     border: $standard-border;
     border-radius: 3px;
     list-style: none;
-    flex: 1 1 100%;
-    max-width: calc(1000% - 1.525em);
 
     @media (min-width: $mobile-breakpoint + 1) {
       flex: 0 0 33.3333%;
-      max-width: calc(33.3333% - 1.525em);
+      max-width: calc(33.3333% - 1.525rem);
     }
 
     .social {
