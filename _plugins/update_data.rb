@@ -2,10 +2,10 @@ require "net/http"
 require "json"
 
 Jekyll::Hooks.register :site, :after_init do |site|
-  Jekyll.logger.info "Updating JSON Data: Downloading from iOSDevDirectory repository"
+  Jekyll.logger.info "Updating JSON Data: Blogs & Sites"
 
   # Download the data and parse into JSON
-  uri = URI("https://raw.githubusercontent.com/daveverwer/iOSDevDirectory/master/content.json")
+  uri = URI("https://raw.githubusercontent.com/daveverwer/iOSDevDirectory/master/blogs.json")
   response = Net::HTTP.get(uri)
   content = JSON.parse(response)
 
