@@ -12,7 +12,7 @@ title: iOS Dev Directory
 <p>The directory is organised by language, and categorised. Jump to any of the categories below:</p>
 
 <ul>
-{% for language in site.data.content %}
+{% for language in site.data.blogs %}
   <li>
     <a href="#{{ language.language }}">{{ language.title }}</a>
     <ul>
@@ -30,7 +30,7 @@ title: iOS Dev Directory
 </div>
 
 <div class="sites">
-{% for language in site.data.content %}
+{% for language in site.data.blogs %}
   <div class="language-header">
     <h1 id="{{ language.language }}">{{ language.title }}</h1>
   </div>

@@ -7,4 +7,4 @@ _site
 .jekyll-metadata
 
 # JSON is downloaded at build time
-_data/content.json
+_data/blogs.json

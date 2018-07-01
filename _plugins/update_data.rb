@@ -17,8 +17,8 @@ Jekyll::Hooks.register :site, :after_init do |site|
 
   # Write a local copy of the sorted blogs data
   blogs_json_path = File.join(site.source, "/_data/blogs.json")
-  FileUtils.mkdir_p(blogs_json_path)
-    File.open(blogs_json_path, "w") do |file|
-    file.write(JSON.pretty_generate(content))
+  FileUtils.mkdir_p(File.dirname(blogs_json_path))
+  File.open(blogs_json_path, "w") do |file|
+    file.write(JSON.pretty_generate(blogs))
   end
 end
