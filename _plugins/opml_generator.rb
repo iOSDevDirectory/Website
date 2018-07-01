@@ -5,7 +5,7 @@ module Jekyll
     safe true
 
     def generate(site)
-      site.data["content"].each do |language|
+      site.data["blogs"].each do |language|
         language["categories"].each do |category|
           # Build the OPML for this category
           builder = Nokogiri::XML::Builder.new(:encoding => "UTF-8") do |xml|
