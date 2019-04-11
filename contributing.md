@@ -48,6 +48,7 @@ Your site should be added as a JSON hash in the correct category. The following 
     <li><code>site_url</code> &ndash; A valid URL to the web version of the blog/site. This field is required.</li>
     <li><code>feed_url</code> &ndash; A valid URL to the RSS/ATOM feed for the blog/site. This field is required.</li>
     <li><code>twitter_url</code> &ndash; A valid URL to the Twitter account for the blog/site. This field is optional.</li>
+    <li><code>microblog_url</code> &ndash; A valid URL to the Micro.blog account for the blog/site. This field is optional.</li>
     <li><code>weibo_url</code> &ndash; A valid URL to the Weibo account for the blog/site. This field is optional.</li>
   </ul>
 </div>
