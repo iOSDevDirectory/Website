@@ -8,17 +8,30 @@ Jekyll::Hooks.register :site, :after_init do |site|
   response = Net::HTTP.get(URI("https://raw.githubusercontent.com/daveverwer/iOSDevDirectory/master/blogs.json"))
   blogs = JSON.parse(response)
 
-  # Sort the blogs in each category, case insensitive!
+  # Count and sort the blogs in each category, case insensitive!
+  blogs_count = 0
   blogs.each do |language|
     language["categories"].each do |category|
       category["sites"].sort_by! { |site| site["title"].downcase }
+      blogs_count += category["sites"].count
     end
   end
 
-  # Write a local copy of the sorted blogs data
+  # Where are the files going to be written?
   blogs_json_path = File.join(site.source, "/_data/blogs.json")
+  stats_json_path = File.join(site.source, "/_data/stats.json")
+
+  # Ensure that path exists
   FileUtils.mkdir_p(File.dirname(blogs_json_path))
+
+  # Write out the sorted blog data
   File.open(blogs_json_path, "w") do |file|
     file.write(JSON.pretty_generate(blogs))
+  end
+
+  # Write out the stats data
+  stats = { blogs_count: blogs_count }
+  File.open(stats_json_path, "w") do |file|
+    file.write(JSON.pretty_generate(stats))
   end
 end
