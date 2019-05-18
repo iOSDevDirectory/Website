@@ -1,5 +1,14 @@
 require 'json'
 
+# -----------------------------------------------------------------------------
+# To insert the sponsor tag into a page, use the following code:
+# -----------------------------------------------------------------------------
+# <div class="sponsored">
+#   {% sponsored_link %}
+#   <small>Sponsored link</small>
+# </div>
+# -----------------------------------------------------------------------------
+
 module Jekyll
   class SponsoredLinkTag < Liquid::Tag
     def render(context)
