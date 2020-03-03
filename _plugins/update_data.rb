@@ -14,7 +14,7 @@ Jekyll::Hooks.register :site, :after_init do |site|
   blogs_count = 0
   blogs.each do |language|
     language['categories'].each do |category|
-      category['sites'].sort_by! { |site_data| site_data['title'].downcase }
+      category['sites'].sort_by! { |site_data| site_data['title'].delete_prefix('The ').downcase }
       blogs_count += category['sites'].count
     end
   end
