@@ -10,3 +10,6 @@ _site
 # JSON is downloaded at build time
 _data/blogs.json
 _data/stats.json
+
+# Nova
+.nova
