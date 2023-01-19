@@ -2,55 +2,84 @@
 layout: default
 title: iOS Dev Directory
 ---
+<form action="/index.html" method="get">
+  <input type="text" id="search-box" name="query" placeholder="Search" aria-label="Search">
+</form>
+
+<h3 id="no-search-results">No Results Found</h3>
+
+<script>
+  // Empty array for the blogs to be loaded into
+  window.store = []
+</script>
 
 <div class="introduction">
   <h1>The iOS Dev Directory is a comprehensive list of blogs &amp; sites covering iOS development.</h1>
   <h2>Whether it covers coding, design, marketing or anything in between, if a blog or site is related to iOS development it should be listed here.</h2>
 </div>
 
-<p>The directory currently includes <strong>{{ site.data.stats.blogs_count }}</strong> sites organised by language, and category:</p>
+<div id="tableOfContents">
+  <p>The directory currently includes <strong>{{ site.data.stats.blogs_count }}</strong> sites organised by language, and category:</p>
 
-<ul>
-{% for language in site.data.blogs %}
-  <li>
-    <a href="#{{ language.language }}">{{ language.title }}</a>
-    <ul>
-    {% for category in language.categories %}
-      <li><a href="#{{ category.slug }}-{{ language.language }}">{{ category.title }}</a></li>
+  <ul>
+    {% for language in site.data.blogs %}
+    <li>
+      <a href="#{{ language.language }}">{{ language.title }}</a>
+      <ul>
+        {% for category in language.categories %}
+        <li><a href="#{{ category.slug }}-{{ language.language }}">{{ category.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
     {% endfor %}
-    </ul>
-  </li>
-{% endfor %}
-</ul>
+  </ul>
+</div>
+
 
 <div class="sites">
+{% assign blogIdentifier = 0 %}
 {% for language in site.data.blogs %}
-  <div class="language-header">
-    <h1 id="{{ language.language }}">{{ language.title }}</h1>
-  </div>
-  <div class="language" lang="{{ language.language}}">
-    {% for category in language.categories %}
-    <div class="category-header">
-      <h2 id="{{ category.slug }}-{{ language.language }}">{{ category.title }}</h2>
-      <span class="opml"><a href="/opml/{{ language.language }}/{{ category.slug }}.opml">OPML</a></span>
+  <div class="language-wrapper">
+    <div class="language-header">
+      <h1 id="{{ language.language }}">{{ language.title }}</h1>
     </div>
-    <p>{{ category.description }}</p>
-    <ul>
-    {% for site in category.sites %}
-      <li>
-        <a href="{{ site.site_url }}">{{ site.title }}</a>
-        <div class="author">By {{ site.author }}</div>
-        <div class="social">
-          {% if site.twitter_url %}<a href="{{ site.twitter_url }}"><img src="/assets/images/twitter.png"></a>{% endif %}
-          {% if site.mastodon_url %}<a href="{{ site.mastodon_url }}"><img src="/assets/images/mastodon.png"></a>{% endif %}
-          {% if site.weibo_url %}<a href="{{ site.weibo_url }}"><img src="/assets/images/weibo.png"></a>{% endif %}
-          {% if site.microblog_url %}<a href="{{ site.microblog_url }}"><img src="/assets/images/microblog.png"></a>{% endif %}
-          <a href="{{ site.feed_url }}"><img src="/assets/images/feed.png"></i></a>
+    <div class="language" lang="{{ language.language}}">
+      {% for category in language.categories %}
+      <div class="category-wrapper">
+        <div class="category-header">
+          <h2 id="{{ category.slug }}-{{ language.language }}">{{ category.title }}</h2>
+          <span class="opml"><a href="/opml/{{ language.language }}/{{ category.slug }}.opml">OPML</a></span>
         </div>
-      </li>
-    {% endfor %}
-    </ul>
-  {% endfor %}
+        <p>{{ category.description }}</p>
+        <ul>
+          {% for site in category.sites %}
+          <li id="{{ blogIdentifier }}">
+            <script>
+              // Search data
+              window.store.push({
+                "id": "{{ blogIdentifier }}",
+                "title": "{{ site.title }}",
+                "author": "{{ site.author }}",
+                "site_url": "{{ site.site_url }}",
+                "feed_url": "{{ site.feed_url }}"
+              });
+            </script>
+            <a href="{{ site.site_url }}">{{ site.title }}</a>
+            <div class="author">By {{ site.author }}</div>
+            <div class="social">
+              {% if site.twitter_url %}<a href="{{ site.twitter_url }}"><img src="/assets/images/twitter.png"></a>{% endif %}
+              {% if site.mastodon_url %}<a href="{{ site.mastodon_url }}"><img src="/assets/images/mastodon.png"></a>{% endif %}
+              {% if site.weibo_url %}<a href="{{ site.weibo_url }}"><img src="/assets/images/weibo.png"></a>{% endif %}
+              {% if site.microblog_url %}<a href="{{ site.microblog_url }}"><img src="/assets/images/microblog.png"></a>{% endif %}
+              <a href="{{ site.feed_url }}"><img src="/assets/images/feed.png"></i></a>
+            </div>
+            {% assign blogIdentifier = blogIdentifier | plus: 1 %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 {% endfor %}
 </div>

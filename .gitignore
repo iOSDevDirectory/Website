@@ -13,3 +13,6 @@ _data/stats.json
 
 # Nova
 .nova
+
+# IntelliJ
+.idea

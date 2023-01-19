@@ -7,6 +7,7 @@ $secondary-background-color: #f2f2f2;
 $hover-background-color: #eaeaea;
 $standard-shadow: 0 0 3px 0 rgba(200, 200, 200, 0.5);
 $standard-border: 1px #dadada solid;
+$error-color: #f62725;
 $mobile-breakpoint: 500px;
 
 body {
@@ -205,4 +206,27 @@ header {
 
 footer {
   margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block !important;
+}
+
+#no-search-results {
+  color: $error-color;
+  margin-bottom: 18px;
+  display: none;
+}
+
+#search-box {
+  margin-bottom: 18px;
+  width: calc(100% - 52px); // 2x 24px padding + 2x 4px border
+  padding: 12px 24px;
+  border-radius: 22px;
+  border: 4px solid $secondary-color;
+  outline: 0;
 }
