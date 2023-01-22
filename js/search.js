@@ -1,4 +1,6 @@
-(function() {
+window.store = []
+
+window.onload = function() {
     function getQueryVariable(variable) {
         const query = window.location.search.substring(1);
         const vars = query.split('&');
@@ -28,49 +30,26 @@
 
         const results = idx.search(searchTerm)
         if (results.length > 0) {
-            // Hide all of the blog <li>'s in O(1) via CSS rules
-            let element = document.createElement('style'), sheet;
-            document.head.appendChild(element);
-            sheet = element.sheet;
-            sheet.insertRule('.sites li { display: none }', 0);
-
-            // OPML links should be hidden when not all their contents are guaranteed to be visible
-            sheet.insertRule('.opml { display: none }', 0);
+            // Hide all the blogs to start
+            Array.from(document.getElementsByClassName('sites').item(0).getElementsByTagName("li")).forEach(blog => {
+                blog.classList.add("hidden")
+            })
 
             // Iterate over the matches and make them visible
             for (let i = 0; i < results.length; i++) {
-                const item = window.store[results[i].ref];
-                document.getElementById(item.id).classList.add("visible")
+                const item = window.store.find(blog => blog.id === results[i].ref);
+                document.getElementById(item.id).classList.remove("hidden")
             }
 
             // Hide the table of contents & stats
             document.getElementById('tableOfContents').classList.add("hidden")
 
-            // Hide any categories that have no results
-            let categories = document.getElementsByClassName("category-wrapper")
-            for (let i = 0; i < categories.length; i++) {
-                let currCat = categories.item(i)
-                let blogsUL = currCat.children.item(currCat.children.length - 1)
-
-                // Hide category if there are no visible blogs
-                if (Array.from(blogsUL.children).every(child => !child.classList.contains("visible"))) {
-                    currCat.classList.add("hidden")
-                }
-            }
-
-            // Hide any languages that have no results
-            let languages = document.getElementsByClassName("language-wrapper")
-            for (let i = 0; i < languages.length; i++) {
-                let currLang = languages.item(i)
-                let categoriesContainer = currLang.children.item(currLang.children.length - 1)
-
-                // Hide language if all categories are hidden
-                if (Array.from(categoriesContainer.children).every(child => child.classList.contains("hidden"))) {
-                    currLang.classList.add("hidden")
-                }
-            }
+            // Hide the OPML links when it's not guaranteed that all links are shown
+            Array.from(document.getElementsByClassName('opml')).forEach(opml => {
+                opml.classList.add("hidden")
+            })
         } else {
             document.getElementById('no-search-results').classList.add("visible");
         }
     }
-})();
+}

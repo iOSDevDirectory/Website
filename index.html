@@ -2,16 +2,7 @@
 layout: default
 title: iOS Dev Directory
 ---
-<form action="/index.html" method="get">
-  <input type="text" id="search-box" name="query" placeholder="Search" aria-label="Search">
-</form>
-
-<h3 id="no-search-results">No Results Found</h3>
-
-<script>
-  // Empty array for the blogs to be loaded into
-  window.store = []
-</script>
+<h3 id="no-search-results">No matching results.</h3>
 
 <div class="introduction">
   <h1>The iOS Dev Directory is a comprehensive list of blogs &amp; sites covering iOS development.</h1>
@@ -37,7 +28,6 @@ title: iOS Dev Directory
 
 
 <div class="sites">
-{% assign blogIdentifier = 0 %}
 {% for language in site.data.blogs %}
   <div class="language-wrapper">
     <div class="language-header">
@@ -53,11 +43,11 @@ title: iOS Dev Directory
         <p>{{ category.description }}</p>
         <ul>
           {% for site in category.sites %}
-          <li id="{{ blogIdentifier }}">
+          <li id="{{ site.id }}">
             <script>
               // Search data
               window.store.push({
-                "id": "{{ blogIdentifier }}",
+                "id": "{{ site.id }}",
                 "title": "{{ site.title }}",
                 "author": "{{ site.author }}",
                 "site_url": "{{ site.site_url }}",
@@ -73,7 +63,6 @@ title: iOS Dev Directory
               {% if site.microblog_url %}<a href="{{ site.microblog_url }}"><img src="/assets/images/microblog.png"></a>{% endif %}
               <a href="{{ site.feed_url }}"><img src="/assets/images/feed.png"></i></a>
             </div>
-            {% assign blogIdentifier = blogIdentifier | plus: 1 %}
           </li>
           {% endfor %}
         </ul>
