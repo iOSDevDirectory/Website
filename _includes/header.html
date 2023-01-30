@@ -5,7 +5,7 @@
       <li><a href="/about">About</a></li>
       <li><a href="/contributing">Add a Site</a></li>
     </ul>
-    {% if page.title == "iOS Dev Directory" %}
+    {% if page.include-search %}
     <form action="/index.html" method="get">
       <input type="search" id="search-box" name="query" placeholder="Search" aria-label="Search">
     </form>
