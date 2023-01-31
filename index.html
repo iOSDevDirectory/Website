@@ -3,12 +3,13 @@ layout: default
 title: iOS Dev Directory
 include-search: true
 ---
-<h3 id="no-search-results" class="hidden">No matching results.</h3>
 
 <div class="introduction">
   <h1>The iOS Dev Directory is a comprehensive list of blogs &amp; sites covering iOS development.</h1>
   <h2>Whether it covers coding, design, marketing or anything in between, if a blog or site is related to iOS development it should be listed here.</h2>
 </div>
+
+<p id="no-search-results" class="hidden">No matching results.</p>
 
 <div id="table-of-contents">
   <p>The directory currently includes <strong>{{ site.data.stats.blogs_count }}</strong> sites organised by language, and category:</p>
@@ -26,7 +27,6 @@ include-search: true
     {% endfor %}
   </ul>
 </div>
-
 
 <div class="sites">
 {% for language in site.data.blogs %}
