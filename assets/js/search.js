@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
         })
 
         // Hide the table of contents & stats
-        document.getElementById('tableOfContents').classList.add("hidden")
+        document.getElementById('table-of-contents').classList.add("hidden")
 
         // Hide the OPML links when it's not guaranteed that all links are shown
         Array.from(document.getElementsByClassName('opml')).forEach(opml => {
