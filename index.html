@@ -111,10 +111,10 @@ include-search: true
                 href="{{ site.microblog_url }}"
                 aria-label="Micro.blog"
                 ><span class="icon icon-microblog"></span></a
-              >{% endif %}
+              >{% endif %} {% if site.feed_url %}
               <a href="{{ site.feed_url }}" aria-label="RSS Feed"
-                ><span class="icon icon-feed"></span
-              ></a>
+                ><span class="icon icon-feed"></span></a
+              >{% endif %}
             </div>
           </li>
           {% endfor %}

@@ -18,6 +18,8 @@ module Jekyll
               end
               xml.body do
                 category['sites'].each do |site_data|
+                  next if site_data['feed_url'].to_s.empty?
+
                   attrs = {
                     type: 'rss',
                     text: site_data['title'],

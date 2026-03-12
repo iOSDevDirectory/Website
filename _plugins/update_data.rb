@@ -22,7 +22,8 @@ Jekyll::Hooks.register :site, :after_init do |site|
     language['categories'].each do |category|
       category['sites'].sort_by! { |site_data| site_data['title'].delete_prefix('The ').downcase }
       category['sites'].each do |blog|
-        blog['id'] = Digest::SHA256.hexdigest("#{blog['site_url']}#{blog['feed_url']}")[0, 12]
+        unique_key = [language['language'], category['slug'], blog['site_url']].join
+        blog['id'] = Digest::SHA256.hexdigest(unique_key)[0, 12]
       end
       blogs_count += category['sites'].count
     end

@@ -86,7 +86,7 @@ Your site should be added as a JSON dictionary in the correct category. Here's a
     <tr>
       <td><code>feed_url</code></td>
       <td>URL to the RSS/Atom feed.</td>
-      <td><span class="badge required">Required</span></td>
+      <td><span class="badge optional">Optional</span></td>
     </tr>
     <tr>
       <td><code>bluesky_url</code></td>
