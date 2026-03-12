@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Jekyll
+_site
+.sass-cache
+.jekyll-metadata
+.jekyll-cache
+
+# JSON is downloaded at build time
+_data/blogs.json
+_data/stats.json
+
+# Nova
+.nova
+
+# IntelliJ
+.idea
+
+# Claude
+.claude
+CLAUDE.md
+AGENTS.md

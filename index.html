@@ -1,0 +1,127 @@
+---
+layout: default
+title: iOS Dev Directory
+include-search: true
+---
+
+<div class="introduction">
+  <h1>
+    The iOS Dev Directory is a comprehensive list of blogs and websites covering
+    Apple platform and Swift development.
+  </h1>
+  <h2>
+    No matter if a site covers coding, design, marketing or anything in between,
+    if it relates to Apple platform or Swift development it should be listed
+    here.
+  </h2>
+</div>
+
+<p id="no-search-results" class="hidden">No matching results.</p>
+
+<div id="table-of-contents">
+  <p>
+    The directory currently includes
+    <strong>{{ site.data.stats.blogs_count }}</strong> sites organised by
+    language, and category:
+  </p>
+
+  <ul>
+    {% for language in site.data.blogs %}
+    <li>
+      <a href="#{{ language.language }}">{{ language.title }}</a>
+      <ul>
+        {% for category in language.categories %}
+        <li>
+          <a href="#{{ category.slug }}-{{ language.language }}"
+            >{{ category.title }}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="sites">
+  {% for language in site.data.blogs %}
+  <div class="language-wrapper">
+    <div class="language-header">
+      <h1 id="{{ language.language }}">{{ language.title }}</h1>
+    </div>
+    <div class="language" lang="{{ language.language}}">
+      {% for category in language.categories %}
+      <div class="category-wrapper">
+        <div class="category-header">
+          <h2 id="{{ category.slug }}-{{ language.language }}">
+            {{ category.title }}
+          </h2>
+          <span class="opml"
+            ><a href="/opml/{{ language.language }}/{{ category.slug }}.opml"
+              >OPML</a
+            ></span
+          >
+        </div>
+        <p>{{ category.description }}</p>
+        <ul>
+          {% for site in category.sites %}
+          <li id="{{ site.id }}">
+            <script>
+              // Search data
+              window.store.push({
+                id: "{{ site.id }}",
+                title: "{{ site.title }}",
+                author: "{{ site.author }}",
+                site_url: "{{ site.site_url }}",
+                feed_url: "{{ site.feed_url }}",
+              });
+            </script>
+            <a href="{{ site.site_url }}">{{ site.title }}</a>
+            <span class="author">By {{ site.author }}</span>
+            <div class="social">
+              {% if site.x_url %}<a
+                href="{{ site.x_url }}"
+                aria-label="Twitter/X"
+                ><span class="icon icon-x"></span></a
+              >{% endif %} {% if site.bluesky_url %}<a
+                href="{{ site.bluesky_url }}"
+                aria-label="Bluesky"
+                ><span class="icon icon-bluesky"></span></a
+              >{% endif %} {% if site.mastodon_url %}<a
+                href="{{ site.mastodon_url }}"
+                aria-label="Mastodon"
+                ><span class="icon icon-mastodon"></span></a
+              >{% endif %} {% if site.threads_url %}<a
+                href="{{ site.threads_url }}"
+                aria-label="Threads"
+                ><span class="icon icon-threads"></span></a
+              >{% endif %} {% if site.weibo_url %}<a
+                href="{{ site.weibo_url }}"
+                aria-label="Weibo"
+                ><span class="icon icon-weibo"></span></a
+              >{% endif %} {% if site.linkedin_url %}<a
+                href="{{ site.linkedin_url }}"
+                aria-label="LinkedIn"
+                ><span class="icon icon-linkedin"></span></a
+              >{% endif %} {% if site.github_url %}<a
+                href="{{ site.github_url }}"
+                aria-label="GitHub"
+                ><span class="icon icon-github"></span></a
+              >{% endif %} {% if site.microblog_url %}<a
+                href="{{ site.microblog_url }}"
+                aria-label="Micro.blog"
+                ><span class="icon icon-microblog"></span></a
+              >{% endif %}
+              <a href="{{ site.feed_url }}" aria-label="RSS Feed"
+                ><span class="icon icon-feed"></span
+              ></a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
