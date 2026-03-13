@@ -14,7 +14,6 @@ module Jekyll
             xml.opml(version: '2.0') do
               xml.head do
                 xml.title "#{category['title']} (#{language['title']}) from the iOS Dev Directory (https://iosdevdirectory.com)"
-                xml.dateCreated Time.now.strftime('%a, %d %b %Y %H:%M:%S %z')
               end
               xml.body do
                 category['sites'].each do |site_data|
