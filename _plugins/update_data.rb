@@ -12,8 +12,7 @@ Jekyll::Hooks.register :site, :after_init do |site|
     response = Net::HTTP.get(URI('https://raw.githubusercontent.com/iOSDevDirectory/iOSDevDirectory/main/blogs.json'))
     blogs = JSON.parse(response)
   rescue StandardError => e
-    Jekyll.logger.error "Failed to download blogs data: #{e.message}"
-    next
+    raise "Failed to download blogs data: #{e.message}"
   end
 
   # Count and sort the blogs in each category, case insensitive!
