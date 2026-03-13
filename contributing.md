@@ -30,8 +30,8 @@ This site supports multiple languages, and categories within those languages. If
 
 These simple instructions should be everything you need to get a new site included in the directory:
 
-1. Fork [this repository](https://github.com/daveverwer/iOSDevDirectory) on GitHub.
-2. Edit [blogs.json](https://github.com/daveverwer/iOSDevDirectory/blob/main/blogs.json) and add your site. See below for the details of the JSON format.
+1. Fork [this repository](https://github.com/iOSDevDirectory/iOSDevDirectory) on GitHub.
+2. Edit [blogs.json](https://github.com/iOSDevDirectory/iOSDevDirectory/blob/main/blogs.json) and add your site. See below for the details of the JSON format.
 3. Submit a pull request.
 
 Once the pull request is accepted and merged, the site will update and your link will appear! Thank you for wanting to contribute.
