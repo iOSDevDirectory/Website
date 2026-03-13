@@ -10,7 +10,7 @@ Is there something missing from this directory? Here's everything you need to kn
 
 ## Guidelines for adding a site or blog
 
-Ideally, only sites relevant to Apple platform or Swift development will be added to this directory, although that includes *all* aspects of development, including design, marketing, business, and everything else. However, if your site includes other topics too, please try and use categories (if your blog software supports them) to filter it down before submission.
+Ideally, only sites relevant to Apple platform or Swift development will be added to this directory, although that includes *all* aspects of development, including design, marketing, business, and everything else. However, if your site includes other topics too, it is still welcome! If your blog covers multiple topics and supports tags/categories for filtering, adding filtered feeds really helps.
 
 For example if you post mainly about Swift development, occasionally about iOS design and sometimes about other topics, the best solution would be to do this:
 
