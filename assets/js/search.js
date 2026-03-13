@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const noResults = document.getElementById('no-search-results')
   const opmlLinks = Array.from(document.getElementsByClassName('opml'))
 
+  let store = null
+
+  function loadStore() {
+    if (store) return Promise.resolve(store)
+    return fetch('/search.json')
+      .then(function (response) { return response.json() })
+      .then(function (data) { store = data; return store })
+  }
+
   function filterSites(query) {
     const term = query.trim().toLowerCase()
 
@@ -19,23 +28,26 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
 
-    allItems.forEach(item => item.classList.add('hidden'))
-    toc.classList.add('hidden')
-    opmlLinks.forEach(opml => opml.classList.add('hidden'))
+    loadStore().then(function (entries) {
+      allItems.forEach(item => item.classList.add('hidden'))
+      toc.classList.add('hidden')
+      opmlLinks.forEach(opml => opml.classList.add('hidden'))
 
-    const matches = window.store.filter(entry =>
-      entry.title.toLowerCase().includes(term) ||
-      entry.author.toLowerCase().includes(term)
-    )
+      const matches = entries.filter(entry =>
+        entry.title.toLowerCase().includes(term) ||
+        entry.author.toLowerCase().includes(term) ||
+        entry.site_url.toLowerCase().includes(term)
+      )
 
-    if (matches.length > 0) {
-      noResults.classList.add('hidden')
-      matches.forEach(entry => document.getElementById(entry.id).classList.remove('hidden'))
-    } else {
-      noResults.classList.remove('hidden')
-    }
+      if (matches.length > 0) {
+        noResults.classList.add('hidden')
+        matches.forEach(entry => document.getElementById(entry.id).classList.remove('hidden'))
+      } else {
+        noResults.classList.remove('hidden')
+      }
 
-    history.replaceState(null, '', '?query=' + encodeURIComponent(query.trim()))
+      history.replaceState(null, '', '?query=' + encodeURIComponent(query.trim()))
+    })
   }
 
   searchBox.addEventListener('input', function () {
