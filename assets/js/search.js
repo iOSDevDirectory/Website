@@ -8,16 +8,42 @@ document.addEventListener('DOMContentLoaded', function () {
   const opmlLinks = Array.from(document.getElementsByClassName('opml'))
 
   let store = null
+  let currentTerm = ''
 
   function loadStore() {
     if (store) return Promise.resolve(store)
     return fetch('/search.json')
-      .then(function (response) { return response.json() })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Failed to load search data')
+        return response.json()
+      })
       .then(function (data) { store = data; return store })
   }
 
+  function applyFilter(term) {
+    allItems.forEach(item => item.classList.add('hidden'))
+    toc.classList.add('hidden')
+    opmlLinks.forEach(opml => opml.classList.add('hidden'))
+
+    const matches = store.filter(entry =>
+      entry.title.toLowerCase().includes(term) ||
+      entry.author.toLowerCase().includes(term) ||
+      entry.site_url.toLowerCase().includes(term)
+    )
+
+    if (matches.length > 0) {
+      noResults.classList.add('hidden')
+      matches.forEach(entry => document.getElementById(entry.id).classList.remove('hidden'))
+    } else {
+      noResults.classList.remove('hidden')
+    }
+
+    history.replaceState(null, '', '?query=' + encodeURIComponent(currentTerm))
+  }
+
   function filterSites(query) {
-    const term = query.trim().toLowerCase()
+    currentTerm = query.trim()
+    const term = currentTerm.toLowerCase()
 
     if (!term) {
       allItems.forEach(item => item.classList.remove('hidden'))
@@ -28,26 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
 
-    loadStore().then(function (entries) {
-      allItems.forEach(item => item.classList.add('hidden'))
-      toc.classList.add('hidden')
-      opmlLinks.forEach(opml => opml.classList.add('hidden'))
-
-      const matches = entries.filter(entry =>
-        entry.title.toLowerCase().includes(term) ||
-        entry.author.toLowerCase().includes(term) ||
-        entry.site_url.toLowerCase().includes(term)
-      )
-
-      if (matches.length > 0) {
-        noResults.classList.add('hidden')
-        matches.forEach(entry => document.getElementById(entry.id).classList.remove('hidden'))
-      } else {
-        noResults.classList.remove('hidden')
-      }
-
-      history.replaceState(null, '', '?query=' + encodeURIComponent(query.trim()))
-    })
+    loadStore()
+      .then(function () {
+        // Only apply if the search box hasn't changed since we started
+        if (query.trim() !== currentTerm) return
+        applyFilter(term)
+      })
+      .catch(function (error) {
+        console.error(error)
+        searchBox.value = ''
+        searchBox.disabled = true
+        searchBox.placeholder = 'Search unavailable'
+      })
   }
 
   searchBox.addEventListener('input', function () {
